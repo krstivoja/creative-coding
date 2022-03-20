@@ -24,9 +24,36 @@
         </div>
 
         <div id="settings">
-            <label for="perspective">Scene Perspective</label>
-            <input id="perspective" />
+            <!-- <label for="perspective">Scene Perspective</label>
+            <input id="perspective" /> -->
+            <h2>Scene</h2>
+            <label for="perspective"><span>0</span> Perspective <span>1000</span></label>
+            <input type="range" id="perspective" min="0" max="1000" value="1000" />
+            
+            <h2>Prism</h2>
+            <label for="prism__rotateX"><span>-360</span> Translate Z <span>360</span></label>
+            <input type="range" id="prism__rotateX" min="-360" max="360" value="-95"/>
 
+            <h2>Prism Side Left</h2>
+            <label for="lf__translateZ"><span>-100</span> Translate Z <span>100</span></label>
+            <input type="range" id="lf__translateZ" min="-100" max="100" value="0"/>
+            
+            <label for="lf__rotateY"><span>-360</span> Rotate Y <span>360</span></label>
+            <input type="range" id="lf__rotateY" min="-360" max="360" value="0"/>
+            
+            <h2>Prism Side Right</h2>
+            <label for="rt__translateZ"><span>-100</span> Translate Z <span>100</span></label>
+            <input type="range" id="rt__translateZ" min="-100" max="100" value="0"/>
+
+            <label for="rt__rotateY"><span>-360</span> Rotate Y <span>360</span></label>
+            <input type="range" id="rt__rotateY" min="-360" max="360" value="0"/>
+            
+            <h2>Prism Side Bottom</h2>
+            <label for="bt__translateZ"><span>-100</span> Translate Z <span>100</span></label>
+            <input type="range" id="bt__translateZ" min="-100" max="100" value="0"/>
+
+            <label for="bt__rotateY"><span>-360</span> Rotate Y <span>360</span></label>
+            <input type="range" id="bt__rotateY" min="-360" max="360" value="0"/>
 
         </div>
     </div>

@@ -2,13 +2,14 @@
 :root {
   --space: 15px;
   --grey: #353535;
-  --perspective: 0;
+  --perspective: 1000px;
+  --prism__rotateX: -95deg;
   --bt__rotateY: 0deg;
-  --bt__translateZ: 0deg;
-  --rt__rotateY: 50deg;
-  --rt__translateZ: 50deg;
-  --lf__rotateY: -50deg;
-  --lf__translateZ: 50deg;
+  --bt__translateZ: 0px;
+  --rt__rotateY: 60deg;
+  --rt__translateZ: 0px;
+  --lf__rotateY: -60deg;
+  --lf__translateZ: 0px;
 }
 
 * {
@@ -25,20 +26,25 @@ body {
 
 .wrap {
   display: grid;
+  align-items: start;
   padding: calc(var(--space) * 2);
   gap: calc(var(--space) * 2);
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 250px;
+  height: 100vh;
+  width: 100%;
 }
 
 #scene {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
+  overflow: hidden;
   border: 2px solid var(--grey);
   border-radius: 4px;
   padding: var(--space);
-  -webkit-perspective: 500px;
-          perspective: 500px;
+  -webkit-perspective: var(--perspective, 1000px);
+          perspective: var(--perspective, 1000px);
 }
 
 #settings {
@@ -46,9 +52,14 @@ body {
   border-radius: 4px;
   padding: var(--space);
 }
+#settings h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
 #settings label {
   display: block;
-  margin-bottom: 10px;
+  margin-top: 20;
+  display: block;
 }
 #settings input {
   padding: 8px;
@@ -58,8 +69,8 @@ body {
   position: relative;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
-  -webkit-transform: rotateX(30deg);
-          transform: rotateX(30deg);
+  -webkit-transform: rotateX(var(--prism__rotateX));
+          transform: rotateX(var(--prism__rotateX));
 }
 
 .prism_side {
@@ -73,18 +84,25 @@ body {
 
 .prism_side--left {
   border: 5px solid red;
+  background-color: rgba(255, 0, 0, 0.5);
   -webkit-transform: rotateY(var(--lf__rotateY)) translateZ(var(--lf__translateZ));
           transform: rotateY(var(--lf__rotateY)) translateZ(var(--lf__translateZ));
+  -webkit-transform-origin: right;
+          transform-origin: right;
 }
 
 .prism_side--right {
   border: 5px solid green;
-  -webkit-transform: rotateY(var(--lf__rotateY)) translateZ(var(--lf__translateZ));
-          transform: rotateY(var(--lf__rotateY)) translateZ(var(--lf__translateZ));
+  background-color: rgba(0, 128, 0, 0.5);
+  -webkit-transform: rotateY(var(--rt__rotateY)) translateZ(var(--rt__translateZ));
+          transform: rotateY(var(--rt__rotateY)) translateZ(var(--rt__translateZ));
+  -webkit-transform-origin: left;
+          transform-origin: left;
 }
 
 .prism_side--bottom {
   border: 5px solid blue;
-  -webkit-transform: rotateY(var(--lf__rotateY)) translateZ(var(--lf__translateZ));
-          transform: rotateY(var(--lf__rotateY)) translateZ(var(--lf__translateZ));
+  background-color: rgba(0, 0, 255, 0.5);
+  -webkit-transform: rotateY(var(--bt__rotateY)) translateZ(var(--bt__translateZ));
+          transform: rotateY(var(--bt__rotateY)) translateZ(var(--bt__translateZ));
 }
