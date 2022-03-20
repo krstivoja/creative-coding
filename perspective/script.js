@@ -7,6 +7,7 @@ var ranges = {
     perspective: document.getElementById('perspective'),
     
     prism__rotateX: document.getElementById('prism__rotateX'),
+    prism__rotateZ: document.getElementById('prism__rotateZ'),
     
     lf__translateZ: document.getElementById('lf__translateZ'),
     lf__rotateY: document.getElementById('lf__rotateY'),
@@ -28,6 +29,11 @@ function valueChange(id, value) {
   
 // prism__rotateX  
 ranges.prism__rotateX.addEventListener('input', function(e) { 
+    valueChange(e.currentTarget.id, e.currentTarget.value + 'deg');
+});
+
+// prism__rotateZ  
+ranges.prism__rotateZ.addEventListener('input', function(e) { 
     valueChange(e.currentTarget.id, e.currentTarget.value + 'deg');
 });
 
@@ -65,12 +71,3 @@ ranges.bt__rotateY.addEventListener('input', function(e) {
 });
 
   
-
-
-// // Scene
-
-// const perspective = document.querySelector('#scene');
-// perspective.addEventListener('input', e => {
-//     document.documentElement.style.setProperty('--perspective', perspective.value)
-// })
-    

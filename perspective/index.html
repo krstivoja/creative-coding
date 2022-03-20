@@ -10,29 +10,34 @@
 <body>
     
     <div class="wrap">
+
+
         <div id="scene">
 
-            
-                <div class="prism">
+            <div class="prism">
 
-                        <div class="prism_side prism_side--bottom">Bottom</div>
-                        <div class="prism_side prism_side--left">left</div>
-                        <div class="prism_side prism_side--right">Right</div>
+                    <div class="prism_side prism_side--bottom">Bottom</div>
+                    <div class="prism_side prism_side--left">left</div>
+                    <div class="prism_side prism_side--right">Right</div>
 
-                </div>
+            </div>
 
         </div>
+    
+        
 
         <div id="settings">
-            <!-- <label for="perspective">Scene Perspective</label>
-            <input id="perspective" /> -->
+            
             <h2>Scene</h2>
             <label for="perspective"><span>0</span> Perspective <span>1000</span></label>
-            <input type="range" id="perspective" min="0" max="1000" value="1000" />
+            <input type="range" id="perspective" min="0" max="200" value="200" />
             
             <h2>Prism</h2>
             <label for="prism__rotateX"><span>-360</span> Translate Z <span>360</span></label>
-            <input type="range" id="prism__rotateX" min="-360" max="360" value="-95"/>
+            <input type="range" id="prism__rotateX" min="-360" max="360" value="-100"/>
+
+            <label for="prism__rotateZ"><span>-360</span> Translate Z <span>360</span></label>
+            <input type="range" id="prism__rotateZ" min="-360" max="360" value="200"/>
 
             <h2>Prism Side Left</h2>
             <label for="lf__translateZ"><span>-100</span> Translate Z <span>100</span></label>
@@ -56,6 +61,8 @@
             <input type="range" id="bt__rotateY" min="-360" max="360" value="0"/>
 
         </div>
+
+        
     </div>
 
     <script src="script.js"></script>

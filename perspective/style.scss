@@ -3,11 +3,13 @@
 :root {
     --space: 15px;
     --grey: #353535;
+    --bg: #090039;
 
     // Promenljive
-    --perspective: 1000px;
+    --perspective: 200px;
 
-    --prism__rotateX: -95deg;
+    --prism__rotateX: -100deg;
+    --prism__rotateZ: 200deg;
 
     --bt__rotateY: 0deg;
     --bt__translateZ: 0px;
@@ -26,7 +28,7 @@
 }
 
 body{
-    background-color: rgb(28, 28, 28);
+    background-color: var(--bg);
     color: beige;
     font-family: 'Kumbh Sans', sans-serif;
 }
@@ -87,7 +89,7 @@ body{
 .prism{
     position: relative;
     transform-style: preserve-3d;   
-    transform: rotateX(var(--prism__rotateX)); 
+    transform: rotateX(var(--prism__rotateX)) rotateZ(var(--prism__rotateZ)); 
 }
 
 .prism_side{
@@ -99,23 +101,39 @@ body{
     align-items: center;
 }
 
+@mixin gradient_bg{
+    background: 
+        linear-gradient(-180deg, var(--bg) 0%, rgba(0,212,255,0) 100%),
+        conic-gradient(from 90deg at 1px 1px,#0000 90deg,rgb(200, 0, 255) 0) 0 0/2vh 2vh;
+
+    animation: gradient 30s ease-in-out infinite;
+}
 
 .prism_side--left{
-    border: 5px solid red;
-    background-color: rgba(255, 0, 0, 0.5);
     transform: rotateY( var(--lf__rotateY) ) translateZ( var(--lf__translateZ) );
     transform-origin: right;
+    @include gradient_bg;
 }
 
 .prism_side--right{
-    border: 5px solid green;
-    background-color: rgba(0, 128, 0, 0.5);
     transform: rotateY( var(--rt__rotateY) ) translateZ( var(--rt__translateZ) );
     transform-origin: left;
+    @include gradient_bg;
 }
 
 .prism_side--bottom{
-    border: 5px solid blue;
-    background-color: rgba(0, 0, 255, 0.5);
     transform: rotateY( var(--bt__rotateY) ) translateZ( var(--bt__translateZ) );
+    @include gradient_bg;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
