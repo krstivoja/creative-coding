@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap');
+
+:root {
+    --space: 15px;
+    --grey: #353535;
+
+    // Promenljive
+    --perspective: 0;
+
+    --bt__rotateY: 0deg;
+    --bt__translateZ: 0deg;
+    
+    --rt__rotateY: 50deg;
+    --rt__translateZ: 50deg;
+    
+    --lf__rotateY: -50deg;
+    --lf__translateZ: 50deg;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: rgb(28, 28, 28);
+    color: beige;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+.wrap{
+    display: grid;
+    padding: calc(var(--space) * 2);
+    gap: calc(var(--space) * 2);
+    grid-template-columns: 2fr 1fr;
+}
+
+#scene{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid var(--grey);
+    border-radius: 4px;
+    padding: var(--space);
+
+    // perspective: var(--perspective, 0);
+    perspective: 500px;
+    
+}
+
+#settings{
+    background: var(--grey);
+    border-radius: 4px;
+    padding: var(--space);
+
+    label{
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    input{
+        padding: 8px;
+    }
+}
+
+
+// Prism
+
+.prism{
+    position: relative;
+    transform-style: preserve-3d;   
+    transform: rotateX(30deg); 
+}
+
+.prism_side{
+    position: absolute;
+    width: 200px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.prism_side--left{
+    border: 5px solid red;
+    transform: rotateY( var(--lf__rotateY) ) translateZ( var(--lf__translateZ) );
+}
+
+.prism_side--right{
+    border: 5px solid green;
+    transform: rotateY( var(--lf__rotateY) ) translateZ( var(--lf__translateZ) );
+}
+
+.prism_side--bottom{
+    border: 5px solid blue;
+    transform: rotateY( var(--lf__rotateY) ) translateZ( var(--lf__translateZ) );
+}
